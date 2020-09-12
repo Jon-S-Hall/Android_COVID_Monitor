@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "438382588484",
+    "firebase_url": "https://bu-covid-monitor.firebaseio.com",
+    "project_id": "bu-covid-monitor",
+    "storage_bucket": "bu-covid-monitor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438382588484:android:262b5588c4763c185ac211",
+        "android_client_info": {
+          "package_name": "com.example.bucovidmonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438382588484-n9la4calndnhjdt1ahjkq74c8o7r86bs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bucovidmonitor",
+            "certificate_hash": "680743f0b38c56a43dbefc16aef61c8d3d9e55cf"
+          }
+        },
+        {
+          "client_id": "438382588484-4de3j711b9b6mnrcceakfadrogoto4lk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE9-py3Y6vToJSElAfU9AFxsiBS4Vok5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438382588484-4de3j711b9b6mnrcceakfadrogoto4lk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
