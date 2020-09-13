@@ -9,4 +9,17 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="button_survey">Complete survey</string>
+    <string name="over_the_past_14_days_have_you_been_experiencing">Over the past 14 days, have you been experiencing:</string>
+    <string name="fevers_of_100_f_or_a_high_temperature">Fevers of 100°F, or a high temperature</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="next">Next</string>
+    <string name="q2">A cough not related to a chronic condition</string>
+    <string name="q3">Difficulty breathing and/or shortness of breath</string>
+    <string name="q4">Sore throat</string>
+    <string name="q5">Loss of sense of taste or smell</string>
+    <string name="q6">Vomiting</string>
+    <string name="q7">Severe fatigue</string>
+    <string name="q8">Severe muscle aches</string>
 </resources>
