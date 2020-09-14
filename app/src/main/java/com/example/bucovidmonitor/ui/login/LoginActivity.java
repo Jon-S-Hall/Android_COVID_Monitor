@@ -75,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 loadingProgressBar.setVisibility(View.VISIBLE);
-
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
