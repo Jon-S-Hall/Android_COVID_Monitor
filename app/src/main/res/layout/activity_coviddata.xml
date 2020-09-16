@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/curState"
-        android:layout_width="212dp"
-        android:layout_height="59dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="97dp" />
+        android:layout_width="335dp"
+        android:layout_height="28dp"
+        android:text="Covid-19 Info for "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.059" />
+
+    <TextView
+        android:id="@+id/curActiveCases"
+        android:layout_width="350dp"
+        android:layout_height="28dp"
+        android:text="Current Active Cases:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/curState"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <TextView
+        android:id="@+id/curNewCases"
+        android:layout_width="355dp"
+        android:layout_height="29dp"
+        android:text="New Cases Today:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/curActiveCases"
+        app:layout_constraintVertical_bias="0.025" />
 </androidx.constraintlayout.widget.ConstraintLayout>
