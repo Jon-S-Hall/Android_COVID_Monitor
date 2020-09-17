@@ -1,5 +1,5 @@
 # Android_COVID_Monitor
-Mini Project for Senior Design EC463. By Jonathan Hall and Sara Hamdy.
+**Mini Project for Senior Design EC463. By Jonathan Hall and Sara Hamdy.**
 
 The application, built using Java in android studio, features both SSO(signal sign on) through Google and email login through account creation. Both authentication processes are enabled and stored through Google firebase.
 
