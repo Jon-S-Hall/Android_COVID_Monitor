@@ -22,4 +22,5 @@
     <string name="q6">Vomiting</string>
     <string name="q7">Severe fatigue</string>
     <string name="q8">Severe muscle aches</string>
+    <string name="alertContent">You have selected Yes on one or more of the COVID symptoms</string>
 </resources>

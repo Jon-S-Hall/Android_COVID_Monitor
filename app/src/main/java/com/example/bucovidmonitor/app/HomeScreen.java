@@ -13,9 +13,13 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 public class HomeScreen extends AppCompatActivity {
 
-    // private Button surveyBtn;
+
     TextView Banner;
 
     @Override
@@ -30,6 +34,14 @@ public class HomeScreen extends AppCompatActivity {
 
         final Button surveyBtn = findViewById(R.id.button2);
         final Button APIBtn = findViewById(R.id.APIBtn);
+        final Button BadgeBtn = findViewById(R.id.viewBadge);
+
+        TextView dueDate = findViewById(R.id.dueDateTime);
+        /* GregorianCalendar calendar = new GregorianCalendar();
+        calendar.add(Calendar.DATE, 1); */
+        String currentDate = java.text.DateFormat.getDateInstance().format(new Date());
+        dueDate.setText(currentDate);
+
 
         surveyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +56,15 @@ public class HomeScreen extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), CovidData.class));
             }
         });
+
+        BadgeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Badge.class));
+
+            }
+        });
+
 
     }
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,19 +15,79 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.193" />
+        app:layout_constraintVertical_bias="0.193" /><![CDATA[
+
+
+
+    ="@+id/"="@+id/" />
+
+    android:id="@+id/2"
+
+
+
+    ="wrap_content"
+    android:layout_height="wrap_content" />
+
+    android:id="@+id/3"
+
+
+
+    ="wrap_content"
+    android:layout_height="wrap_content" />
+
+    android:layout_height="wrap_content"
+
+    android:id="@+id/4"
+
+    ="wrap_content"="147dp"
+
+        android:layout_width="381dp"
+
+        android:layout_width="50dp"
+
+        android:layout_width="342dp"
+
+        android:layout_width="0dp"
+
+        android:layout_width="6dp"
+
+        android:layout_width="38dp"
+
+        android:layout_width="41dp"
+
+        android:layout_width="91dp"="242dp"="18dp"="9dp"="3dp"="0dp"="118dp"="47dp"="212dp"="94dp"="121dp"
+        android:layout_width="150dp" />
+
+    android:id="@+id/5"
+
+    ="wrap_content"
+    android:layout_height="wrap_content" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ]]>
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="353dp"
-        android:layout_height="47dp"
+        android:layout_width="355dp"
+        android:layout_height="49dp"
         android:text="@string/button_survey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391" />
+        app:layout_constraintVertical_bias="0.514" />
 
     <Button
         android:id="@+id/logoutBtn"
@@ -52,18 +111,47 @@
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.103" />
+        app:layout_constraintVertical_bias="0.103" /><![CDATA[
+
+    =======
+    app:layout_constraintVertical_bias="0.395" />
+
+    ]]>
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="308dp"
-        android:layout_height="22dp"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
         android:text="Next survey due before: "
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeBanner"
-        app:layout_constraintVertical_bias="0.736" />
+        app:layout_constraintVertical_bias="0.739" />
 
+    <Button
+        android:id="@+id/viewBadge"
+        android:layout_width="355dp"
+        android:layout_height="49dp"
+        android:text="View Badge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.706" />
+
+    <TextView
+        android:id="@+id/dueDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.405" />
+    >>>>>>> Stashed changes
 </androidx.constraintlayout.widget.ConstraintLayout>
