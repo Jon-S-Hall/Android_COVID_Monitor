@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bucovidmonitor.R;
+import com.example.bucovidmonitor.ui.login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -27,7 +28,6 @@ public class HomeScreen extends AppCompatActivity {
         LogOut = findViewById(R.id.logoutBtn);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         //update name to name of person logged in.
         Banner.append(" " + user.getEmail() + "!");
 
@@ -52,6 +52,7 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
 

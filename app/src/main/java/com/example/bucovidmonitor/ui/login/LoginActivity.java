@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bucovidmonitor.R;
+import com.example.bucovidmonitor.app.AdminHome;
 import com.example.bucovidmonitor.app.HomeScreen;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -81,8 +82,14 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             //Toast.makeText(LoginActivity.this, "Logged in! " + task.getException().getMessage(), Toast.LENGTH_SHORT);
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(getApplicationContext(), HomeScreen.class));
+                            FirebaseUser user = mAuth.getInstance().getCurrentUser();
+                            String UID = "RtGNhCjvvIS71e5PcdqmGUiSdAK2";
+                            if(user.getUid().equals(UID)){
+                                startActivity(new Intent(getApplicationContext(), AdminHome.class));
+                            }else {
+                                Log.w(TAG, "email is: " + user.getEmail());
+                                startActivity(new Intent(getApplicationContext(), HomeScreen.class));
+                            }
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(LoginActivity.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT);
