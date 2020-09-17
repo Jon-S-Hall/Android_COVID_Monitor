@@ -24,7 +24,7 @@ public class SurveyActivity extends AppCompatActivity {
     int stringIDList[] = {R.string.q2, R.string.q3, R.string.q4, R.string.q5, R.string.q6, R.string.q7, R.string.q8};
     boolean responseVars[] = new boolean[8];
     int stringListCount;
-
+    boolean positiveSymptom = false;
     private RadioGroup mYesNo;
             RadioButton yesBtn;
             Button nextBtn;
@@ -54,7 +54,9 @@ public class SurveyActivity extends AppCompatActivity {
                TextView nextQ = (TextView)findViewById(R.id.question);
                 // nextQ.setText("Coughing, not related to a chronic condition");
                int id = v.getId();
-
+                if(yesBtn.isChecked()){
+                    positiveSymptom = true;
+                }
                if(id == R.id.next && stringListCount < stringIDList.length - 1) {
                    responseVars[stringListCount] = yesBtn.isChecked(); //set the corresponding bool to false if not checked.
                    stringListCount++;
@@ -64,7 +66,7 @@ public class SurveyActivity extends AppCompatActivity {
                    responseVars[stringListCount] = yesBtn.isChecked(); //set the corresponding bool to false if not checked.
                    nextBtn.setText("Finish");
 
-                   WriteData(user.getUid(), user.getEmail(), responseVars);
+                   WriteData(user.getUid(), user.getEmail(), responseVars, positiveSymptom);
 
                    nextBtn.setOnClickListener(new View.OnClickListener() {
                        @Override

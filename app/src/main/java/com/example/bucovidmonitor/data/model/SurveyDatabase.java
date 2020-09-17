@@ -22,7 +22,7 @@ public class SurveyDatabase {
 
     // Access a Cloud Firestore instance from your Activity
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    public static void WriteData(String uid, String email, boolean[] surveyResult){
+    public static void WriteData(String uid, String email, boolean[] surveyResult, boolean positiveSymptom){
         String TAG = "DatabaseActivity";
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         // Create a new user with a first and last name
@@ -38,6 +38,7 @@ public class SurveyDatabase {
         user.put("q6", surveyResult[5]);
         user.put("q7", surveyResult[6]);
         user.put("q8", surveyResult[7]);
+        user.put("symptomatic", positiveSymptom);
 
         // Add a new document with a generated ID
         db.collection("SymptomSurvey")

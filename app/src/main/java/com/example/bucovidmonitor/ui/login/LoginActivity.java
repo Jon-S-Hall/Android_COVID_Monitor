@@ -121,14 +121,13 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-
     }
 
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        FirebaseUser currentUser = mAuth.getInstance().getCurrentUser();
         updateUI(currentUser);
     }
 
@@ -170,12 +169,18 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void updateUI(FirebaseUser account) {
+        FirebaseUser user = mAuth.getInstance().getCurrentUser();
+        String UID = "RtGNhCjvvIS71e5PcdqmGUiSdAK2";
         if(account == null){
             return;
+        }else if(user.getUid().equals(UID)){
+            startActivity(new Intent(getApplicationContext(), AdminHome.class));
+        }else {
+            Log.w(TAG, "email is: " + user.getEmail());
+            startActivity(new Intent(getApplicationContext(), HomeScreen.class));
         }
-        startActivity(new Intent(getApplicationContext(), HomeScreen.class));
-
     }
+
 
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
