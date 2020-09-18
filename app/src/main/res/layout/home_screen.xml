@@ -119,16 +119,16 @@
     ]]>
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:text="Next survey due before: "
+
+        android:id="@+id/nextSurveyDueText"
+        android:layout_width="383dp"
+        android:layout_height="40dp"
+        android:text="Next survey due"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeBanner"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintVertical_bias="0.325" />
 
     <Button
         android:id="@+id/viewBadge"
@@ -141,17 +141,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.706" />
-
-    <TextView
-        android:id="@+id/dueDateTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.405" />
-    >>>>>>> Stashed changes
+    
 </androidx.constraintlayout.widget.ConstraintLayout>

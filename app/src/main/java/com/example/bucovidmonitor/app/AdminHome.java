@@ -1,8 +1,13 @@
 package com.example.bucovidmonitor.app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresPermission;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bucovidmonitor.R;
@@ -16,68 +21,40 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import android.view.View;
-import android.widget.Button;
-import android.content.Intent;
-import android.widget.TextView;
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 
-public class HomeScreen extends AppCompatActivity {
+public class AdminHome extends AppCompatActivity {
 
-
-    TextView Banner;
     Button LogOut;
+    TextView totSurveys;
+    TextView surveysTodayText;
+    TextView positiveSymptoms;
+    TextView positiveSymptomsTotal;
+    // Access a Cloud Firestore instance from your Activity
     FirebaseFirestore db;
-    FirebaseUser user;
-    TextView surveyText;
     long difference;
+    int surveysToday;
+    int totalSymptomatic;
+    int todaySymptomatic;
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         db = FirebaseFirestore.getInstance();
-        setContentView(R.layout.home_screen);
-        Banner = findViewById(R.id.welcomeBanner);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.admin_screen);
         LogOut = findViewById(R.id.logoutBtn);
-        surveyText = findViewById(R.id.nextSurveyDueText);
-
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        totSurveys = findViewById(R.id.totalSurveys);
+        surveysTodayText = findViewById(R.id.surveysToday);
+        positiveSymptoms = findViewById(R.id.positiveSurveys);
+        positiveSymptomsTotal = findViewById(R.id.positiveSurveysTotal);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         //update name to name of person logged in.
-        Banner.append(" " + user.getEmail() + "!");
 
-        final Button surveyBtn = findViewById(R.id.button2);
-        final Button APIBtn = findViewById(R.id.APIBtn);
-        final Button BadgeBtn = findViewById(R.id.viewBadge);
-
-
-
-        surveyBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(getApplicationContext(), SurveyActivity.class));
-            }
-        });
-
-        APIBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(getApplicationContext(), CovidData.class));
-            }
-        });
-
-
-        BadgeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Badge.class));
-
-            }
-        });
-
+        ReadData();
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -88,28 +65,24 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onStart(){
-        super.onStart();
-        NextSurveyDue();
-    }
-
-    public void NextSurveyDue(){
+    public void ReadData(){
+        surveysToday = 0;
+        totalSymptomatic = 0;
+        todaySymptomatic = 0;
         Date curDate = Calendar.getInstance().getTime();
-        long mostRecentSurvey = 25;
-
         db.collection("SymptomSurvey")
-                .whereEqualTo("uid", user.getUid())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             int numSurveys = task.getResult().size();
+                            totSurveys.append(Integer.toString(numSurveys));
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 if (document.exists()) {
                                     Map<String, Object> survey = document.getData();
                                     Timestamp taken = (Timestamp)survey.get("date");
+                                    boolean symptomatic = (boolean)survey.get("symptomatic");
                                     Date datetaken = taken.toDate();
                                     try {
                                         difference = curDate.getTime() - datetaken.getTime();
@@ -126,19 +99,27 @@ public class HomeScreen extends AppCompatActivity {
                                     long elapsedHours = difference / hoursInMilli;
 
                                     System.out.println(elapsedHours);
-                                    if (elapsedHours < mostRecentSurvey) {
-                                        surveyText.append(" Tomorrow! You completed survey " + elapsedHours + " hour(s) ago.");
-                                        break;
+                                    if(symptomatic){
+                                        totalSymptomatic++;
                                     }
-                                    if (elapsedHours > mostRecentSurvey) {
-                                        surveyText.append(" is due! Last take " + elapsedHours + " hour(s) ago.");
+                                    if(elapsedHours < 24){
+                                        surveysToday++;
+                                        if(symptomatic){
+                                            todaySymptomatic++;
+                                        }
                                     }
+
                                 }
                             }
+                            surveysTodayText.append(" " + surveysToday);
+                            positiveSymptoms.append(" " + todaySymptomatic);
+                            positiveSymptomsTotal.append(" " + totalSymptomatic);
                         }
                     }
                 });
 
 
+
     }
+
 }

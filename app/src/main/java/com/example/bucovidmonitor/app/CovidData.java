@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.bucovidmonitor.R;
 import com.example.bucovidmonitor.api.CovidApi;
 import com.example.bucovidmonitor.api.CovidApiTemplate;
+
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 
@@ -21,7 +24,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CovidData extends AppCompatActivity {
     private TextView curState;
-
+    private TextView curActiveCases;
+    private TextView todayCases;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,8 @@ public class CovidData extends AppCompatActivity {
         setContentView(R.layout.activity_coviddata);
 
         curState = findViewById(R.id.curState);
+        curActiveCases = findViewById(R.id.curActiveCases);
+        todayCases = findViewById(R.id.curNewCases);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://corona.lmao.ninja/v2/")
@@ -50,7 +56,9 @@ public class CovidData extends AppCompatActivity {
 
                 for (CovidApiTemplate state : states){
                     if(state.getState().equals("Massachusetts")){
-                        curState.setText(state.getState());
+                        curState.append(state.getState());
+                        curActiveCases.append(" " + String.valueOf(state.getActive()));
+                        todayCases.append(" " + String.valueOf(state.getTodayCases()));
                     }
                 }
             }
