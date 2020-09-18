@@ -21,7 +21,8 @@
         <activity android:name=".app.HomeScreen"/>
         <activity android:name=".app.SurveyActivity"/>
         <activity android:name=".app.CovidData"/>
+        <activity android:name=".app.Badge"/>
         <activity android:name=".app.AdminHome"/>
-    </application>
+</application>
 
 </manifest>

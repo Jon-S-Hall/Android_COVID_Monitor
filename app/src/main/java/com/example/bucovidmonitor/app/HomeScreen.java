@@ -26,9 +26,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class HomeScreen extends AppCompatActivity {
 
-    // private Button surveyBtn;
+
     TextView Banner;
     Button LogOut;
     FirebaseFirestore db;
@@ -50,6 +51,8 @@ public class HomeScreen extends AppCompatActivity {
 
         final Button surveyBtn = findViewById(R.id.button2);
         final Button APIBtn = findViewById(R.id.APIBtn);
+        final Button BadgeBtn = findViewById(R.id.viewBadge);
+
 
 
         surveyBtn.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +66,15 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 startActivity(new Intent(getApplicationContext(), CovidData.class));
+            }
+        });
+
+
+        BadgeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Badge.class));
+
             }
         });
 
@@ -126,6 +138,7 @@ public class HomeScreen extends AppCompatActivity {
                         }
                     }
                 });
+
 
     }
 }
