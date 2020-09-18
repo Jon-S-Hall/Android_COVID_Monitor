@@ -11,12 +11,12 @@ Once logged in, the user is able to take self administered health surveys, prese
 ### Home Screen
 <img src="https://github.com/Jon-S-Hall/Android_COVID_Monitor/blob/master/images/covidapp_homescreen.PNG" width="275" />
 
-The health survey is a series of 8 questions that ask the user if they're experiencing various COVID symptoms. The questions are presented in a neat manner, with one question at a time to avoid scrolling. This allows users who feel well to breeze through their questionnaire and be incentivized to complete it regularly. The surveys are taken daily, and if the user misses theirs, a notification will be send via banner to remind the user. There is also a helpful display in the app that outputs the last time a survey was taken. The data is stored via Firebase's Cloud Firestore.
+The health survey is a series of 8 questions that ask the user if they're experiencing various COVID symptoms. The questions are presented in a neat manner, with one question at a time to avoid scrolling. This allows users who feel well to breeze through their questionnaire and be incentivized to complete it regularly. The surveys are taken daily, and if the user misses theirs, a notification will be sent via banner to remind the user. There is also a helpful display in the app that outputs the last time a survey was taken. The data is stored via Firebase's Cloud Firestore.
 
 ### Survey Screen
 <img src="https://github.com/Jon-S-Hall/Android_COVID_Monitor/blob/master/images/covidapp_survey.PNG" width="275" /> <img src="https://github.com/Jon-S-Hall/Android_COVID_Monitor/blob/master/images/covidapp_alert.PNG" width="275" /> 
 
-If the user answers "yes" to any survey questions, their banner will turn orange to signify to university administrators that the student should be home. If the student answers "no" to all survey questions, the banner will display green signifying **all good to go!**
+If the user answers "yes" to any survey questions, they will be alerted that they have reported a possible COVID symptom, and their banner will turn orange to signify to university administrators that the student should be home. If the student answers "no" to all survey questions, the banner will display green signifying **all good to go!**
 
 ### Badge Screen
 <img src="https://github.com/Jon-S-Hall/Android_COVID_Monitor/blob/master/images/covidapp_cleared.PNG" width="275" /> <img src="https://github.com/Jon-S-Hall/Android_COVID_Monitor/blob/master/images/covidapp_quarantine.PNG" width="275" />
