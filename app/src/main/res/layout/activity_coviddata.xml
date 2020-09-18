@@ -7,39 +7,80 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/curState"
-        android:layout_width="335dp"
-        android:layout_height="28dp"
-        android:text="Covid-19 Info for "
-        android:textSize="18sp"
+        android:id="@+id/casespermil"
+        android:layout_width="355dp"
+        android:layout_height="29dp"
+        android:text="Cases per 1 million: "
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/curNewCases"
+        app:layout_constraintVertical_bias="0.029" />
+
+    <TextView
+        android:id="@+id/curState"
+        android:layout_width="392dp"
+        android:layout_height="37dp"
+        android:text="Covid-19 Info for "
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059" />
+        app:layout_constraintVertical_bias="0.123" />
 
     <TextView
         android:id="@+id/curActiveCases"
         android:layout_width="350dp"
         android:layout_height="28dp"
         android:text="Current Active Cases:"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/curState"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <TextView
         android:id="@+id/curNewCases"
         android:layout_width="355dp"
         android:layout_height="29dp"
         android:text="New Cases Today:"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/curActiveCases"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintVertical_bias="0.034" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="328dp"
+        android:layout_height="85dp"
+        android:text="Stay Safe and Don't Forget Your Mask!"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/casespermil"
+        app:layout_constraintVertical_bias="0.657" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="*API provided by https://corona.lmao.ninja/"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

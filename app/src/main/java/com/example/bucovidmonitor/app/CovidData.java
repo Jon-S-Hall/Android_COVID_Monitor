@@ -26,7 +26,7 @@ public class CovidData extends AppCompatActivity {
     private TextView curState;
     private TextView curActiveCases;
     private TextView todayCases;
-
+    private TextView casePerMil;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,7 @@ public class CovidData extends AppCompatActivity {
         curState = findViewById(R.id.curState);
         curActiveCases = findViewById(R.id.curActiveCases);
         todayCases = findViewById(R.id.curNewCases);
+        casePerMil = findViewById(R.id.casespermil);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://corona.lmao.ninja/v2/")
@@ -59,6 +60,7 @@ public class CovidData extends AppCompatActivity {
                         curState.append(state.getState());
                         curActiveCases.append(" " + String.valueOf(state.getActive()));
                         todayCases.append(" " + String.valueOf(state.getTodayCases()));
+                        casePerMil.append(String.valueOf(state.getCasesPerOneMillion()));
                     }
                 }
             }
